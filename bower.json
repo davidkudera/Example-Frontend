@@ -1,0 +1,14 @@
+{
+	"name": "example-frontend",
+	"version": "1.0.0",
+	"description": "Example of frontend workflow",
+	"licence": "MIT",
+	"authors": [
+		"David Kudera <kudera.d@gmail.com>"
+	],
+	"main": ["app/index.ts"],
+	"dependencies": {
+		"jquery": "1.11.2",
+		"bootstrap": "3.3.2"
+	}
+}
