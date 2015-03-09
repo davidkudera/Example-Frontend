@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var less = require('gulp-less');
 var replace = require('gulp-replace');
 var rename = require('gulp-rename');
+var sourceMaps = require('gulp-sourcemaps');
 
 var source = require('vinyl-source-stream');
 
@@ -39,7 +40,7 @@ gulp.task('compile-js', function() {
 		.transform(debowerify);
 
 	return bundler.bundle()
-		.pipe(exorcist(config.publicDir + '/application.map.js'))
+		.pipe(exorcist(config.publicDir + '/application.js.map'))
 		.pipe(source('application.js'))
 		.pipe(gulp.dest(config.publicDir));
 });
@@ -64,9 +65,11 @@ gulp.task('uglify-js', ['compile-js'], function() {
  */
 gulp.task('compile-css', function() {
 	return gulp.src(config.stylesDir + '/index.less')
+		.pipe(sourceMaps.init())
 		.pipe(less({paths: [config.stylesDir]}))
-		.pipe(replace('../fonts/glyphicons', './fonts/bootstrap/glyphicons'))	// set right paths to bootstrap fonts */
-		.pipe(rename('style.css'))
+		.pipe(replace('../fonts/glyphicons', './fonts/bootstrap/glyphicons'))	// set right paths to bootstrap fonts
+		.pipe(rename('style.css'))												// rename must be before source maps call
+		.pipe(sourceMaps.write('.'))											// must be relative to public directory
 		.pipe(gulp.dest(config.publicDir));
 });
 
