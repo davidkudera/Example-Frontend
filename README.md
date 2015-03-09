@@ -14,7 +14,7 @@ Example of my current frontend workflow
 * [Gulp](http://gulpjs.com/) for compiling and building my application
 * [Browserify](http://browserify.org/) for ability to use `require` in browser
 
-**And I'm not using:**
+**But I'm not using:**
 
 * Watching packages: PhpStorm watch for changes for me, so I don't need to start some command before developing
 * Node.js server: I'm PHP developer, so I'm using Nginx + php-fpm
