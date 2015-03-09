@@ -67,9 +67,9 @@ gulp.task('compile-css', function() {
 	return gulp.src(config.stylesDir + '/index.less')
 		.pipe(sourceMaps.init())
 		.pipe(less({paths: [config.stylesDir]}))
-		.pipe(replace('../fonts/glyphicons', './fonts/bootstrap/glyphicons'))	// set right paths to bootstrap fonts
-		.pipe(rename('style.css'))												// rename must be before source maps call
-		.pipe(sourceMaps.write('.'))											// must be relative to public directory
+		.pipe(replace('../fonts/glyphicons', './fonts/bootstrap/glyphicons'))       // set right paths to bootstrap fonts
+		.pipe(rename('style.css'))                                                  // rename must be before source maps call
+		.pipe(sourceMaps.write('.'))                                                // must be relative to public directory
 		.pipe(gulp.dest(config.publicDir));
 });
 
