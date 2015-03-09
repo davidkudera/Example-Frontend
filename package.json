@@ -28,8 +28,6 @@
 	},
 	"scripts": {
 		"fonts": "gulp fonts",
-		"js": "gulp js",
-		"css": "gulp css",
 		"compile-js": "gulp compile-js",
 		"compile-css": "gulp compile-css",
 		"uglify-js": "gulp uglify-js",

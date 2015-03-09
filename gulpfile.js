@@ -50,9 +50,6 @@ gulp.task('uglify-js', ['compile-js'], function() {
 });
 
 
-gulp.task('js', ['compile-js', 'uglify-js']);		// it's useless to have compile-js here, but it looks better
-
-
 // ====== STYLES
 
 
@@ -80,9 +77,6 @@ gulp.task('uglify-css', ['compile-css'], function() {
 		.pipe(rename('style.min.css'))
 		.pipe(gulp.dest(config.publicDir));
 });
-
-
-gulp.task('css', ['compile-css', 'uglify-css']);		// again useless to have compile-css here, but looks better
 
 
 // ====== FONTS
