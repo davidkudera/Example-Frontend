@@ -65,7 +65,6 @@ gulp.task('uglify-js', ['compile-js'], function() {
 gulp.task('compile-css', function() {
 	return gulp.src(config.stylesDir + '/index.less')
 		.pipe(less({paths: [config.stylesDir]}))
-		//.pipe(replace(/(\.\.\/)+images\//g, config.images.publicPath + '/'))
 		.pipe(replace('../fonts/glyphicons', './fonts/bootstrap/glyphicons'))	// set right paths to bootstrap fonts */
 		.pipe(rename('style.css'))
 		.pipe(gulp.dest(config.publicDir));
