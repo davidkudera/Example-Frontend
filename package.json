@@ -20,6 +20,7 @@
 		"gulp-replace": "0.5.3",
 		"gulp-rename": "1.2.0",
 		"vinyl-source-stream": "1.1.0",
+		"exorcist": "0.1.6",
 		"browserify": "9.0.3",
 		"debowerify": "1.2.0",
 		"tsify": "0.8.1",

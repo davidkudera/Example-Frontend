@@ -5,6 +5,8 @@ var rename = require('gulp-rename');
 
 var source = require('vinyl-source-stream');
 
+var exorcist = require('exorcist');
+
 var browserify = require('browserify');
 var debowerify = require('debowerify');
 var tsify = require('tsify');
@@ -28,12 +30,16 @@ var config = {
  * Compile ts files to js and save result to public directory
  */
 gulp.task('compile-js', function() {
-	var bundler = browserify({basedir: config.applicationDir})
+	var bundler = browserify({
+			basedir: config.applicationDir,
+			debug: true
+		})
 		.add(config.applicationDir + '/index.ts')
 		.plugin(tsify)
 		.transform(debowerify);
 
 	return bundler.bundle()
+		.pipe(exorcist(config.publicDir + '/application.map.js'))
 		.pipe(source('application.js'))
 		.pipe(gulp.dest(config.publicDir));
 });
